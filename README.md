@@ -22,6 +22,23 @@ go build -o hello main.go
 go build -ldflags="-s -w" -o demo1 main.go
 ```
 
+- list all os and architectures go can build 
+
+```
+go tool dist list
+```
+- go build , cross compile to different target
+
+```
+GOOS=windows GOARCH=amd64 go build -o build/demo_windows_amd
+64.exe main.go
+
+or 
+
+GOOS=linux GOARCH=amd64 go build -o build/demo_linux_amd
+64 main.go
+```
+
 ## keywords 
 
 - func, import, package, var
@@ -31,6 +48,7 @@ go build -ldflags="-s -w" -o demo1 main.go
 - print,println
 
 ## Why Golang?
+
 - 1. Fast compilation
 - 2. No dependencies
 - 3. No runtime has to installed on the target machine
@@ -42,3 +60,12 @@ go build -ldflags="-s -w" -o demo1 main.go
 - 9. Concurrency (CSP)
 - 10. Performance
 
+## Compilation
+
+## GO Environment variables
+
+- GOROOT : Where go is installed
+- GOPATH : where all custom or third party packages are downloaded and compiled
+- GOBIN  : where all 'go install' are installed into this directory.If empty, $GOPATH/bin directory is used. 
+- GOARCH : processor architecture amd64 or arm64 or wasm or 386 etc.
+- GOOS   : operating system linux or windows or darwin or android etc.
