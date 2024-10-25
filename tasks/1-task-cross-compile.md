@@ -1,0 +1,2 @@
+- 1. Create or use any program 
+- 2. cross compile for ios and android arm64 and amd64 architectures
