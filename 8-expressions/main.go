@@ -10,9 +10,7 @@ func main() {
 	// false && true || false
 	// false || false
 	// false
-
 	println(exp1, exp2)
-
 }
 
 // arthimetic
