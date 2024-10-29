@@ -29,6 +29,15 @@ func main() {
 		println(num, "is a negative number")
 	}
 
+	char := 'A'
+
+	switch char {
+
+	case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U':
+		println(string(char), "is vovel")
+	default:
+		println(string(char), "is either consonent or a special character")
+	}
 }
 
 // break is automatically enabled in go

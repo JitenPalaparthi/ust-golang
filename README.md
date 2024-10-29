@@ -41,7 +41,7 @@ GOOS=linux GOARCH=amd64 go build -o build/demo_linux_amd
 
 ## keywords 
 
-- else,func, if, import, package, var
+- case,default,else,fallthrough,func, if, import, package, switch,var
 
 ## builtin
 
