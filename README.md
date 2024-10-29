@@ -41,11 +41,11 @@ GOOS=linux GOARCH=amd64 go build -o build/demo_linux_amd
 
 ## keywords 
 
-- case,default,else,fallthrough,func, if, import, package, switch,var
+- case,const,default,else,fallthrough,func, if, import, package, switch,var (11 out of 25)
 
 ## builtin
 
-- print,println
+- print,println (2 out of 18)
 
 ## Why Golang?
 
@@ -69,3 +69,7 @@ GOOS=linux GOARCH=amd64 go build -o build/demo_linux_amd
 - GOBIN  : where all 'go install' are installed into this directory.If empty, $GOPATH/bin directory is used. 
 - GOARCH : processor architecture amd64 or arm64 or wasm or 386 etc.
 - GOOS   : operating system linux or windows or darwin or android etc.
+
+
+Compilation ->
+
