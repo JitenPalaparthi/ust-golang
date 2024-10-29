@@ -41,11 +41,11 @@ GOOS=linux GOARCH=amd64 go build -o build/demo_linux_amd
 
 ## keywords 
 
-- case,const,default,else,fallthrough,func, if, import, package, switch,var (11 out of 25)
+- break,case,const,continue,default,else,fallthrough,for,func, if, import, package, range,switch,var (15 out of 25)
 
 ## builtin
 
-- print,println (2 out of 18)
+- complex,len,imag,print,println,real (6 out of 18)
 
 ## Why Golang?
 
