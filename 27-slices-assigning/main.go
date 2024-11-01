@@ -43,4 +43,8 @@ func main() {
 
 	fmt.Println("slice4:", slice4, "length:", len(slice4), "capacity:", cap(slice4), "address:", &slice4[0])
 
+	clear(slice4) // clears the slice to zero value
+
+	fmt.Println("slice4:", slice4, "length:", len(slice4), "capacity:", cap(slice4), "address:", &slice4[0])
+
 }
