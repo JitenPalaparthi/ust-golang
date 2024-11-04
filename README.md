@@ -45,7 +45,7 @@ GOOS=linux GOARCH=amd64 go build -o build/demo_linux_amd
 
 ## builtin
 
-- append,clear,complex,copy,len,imag,make,max,min,print,println,real (12 out of 18)
+- append,cap,clear,complex,copy,len,imag,make,max,min,print,println,real (13 out of 18)
 
 ## Why Golang?
 
