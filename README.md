@@ -39,13 +39,19 @@ GOOS=linux GOARCH=amd64 go build -o build/demo_linux_amd
 64 main.go
 ```
 
+- escape analysis
+
+```
+go run -gcflags="-m" main.go
+```
+
 ## keywords 
 
 - break,case,const,continue,default,else,fallthrough,for,func, if, import,map, package, range,switch,var (16 out of 25)
 
 ## builtin
 
-- append,cap,clear,complex,copy,delete,len,imag,make,max,min,print,println,real (14 out of 18)
+- append,cap,clear,complex,copy,delete,len,imag,make,max,min,new,print,println,real (15  out of 18)
 
 ## Why Golang?
 
