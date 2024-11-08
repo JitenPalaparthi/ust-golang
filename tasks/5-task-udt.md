@@ -1,0 +1,3 @@
+- create a new type as CustomMap on map[string]any
+- Create a method called Delete(key string)(error)
+- it should return an error if map is nil or deleted key is not presented
