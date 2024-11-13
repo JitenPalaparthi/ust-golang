@@ -2,8 +2,11 @@ package rect
 
 import "fmt"
 
+//var Map1 map[string]interface{}
+
 func init() {
 	fmt.Println("rect package is used ")
+	//Map1 = make(map[string]interface{})
 }
 
 func New(l, b float32) *Rect { // using New is an idiomatic approach , to create a constructure
