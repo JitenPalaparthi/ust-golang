@@ -41,8 +41,8 @@ func square2(num uint16) uint16 {
 	return (num * num)
 }
 
-func fatal(msg string) {
-	fmt.Println(msg)
+func fatal(msg ...any) {
+	fmt.Println(msg...)
 	os.Exit(1)
 }
 

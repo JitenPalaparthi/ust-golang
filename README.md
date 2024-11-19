@@ -47,7 +47,7 @@ go run -gcflags="-m" main.go
 
 ## keywords 
 
-- break,case,const,continue,default,else,fallthrough,for,func,goto, if, import,interface,map, package,range,switch,struct,type,var (20 out of 25)
+- break,case,const,continue,default,defer,else,fallthrough,for,func,goto, if, import,interface,map, package,range,return,switch,struct,type,var (22 out of 25)
 
 ## builtin
 
