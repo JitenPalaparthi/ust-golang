@@ -30,6 +30,29 @@ func main() {
 
 	r5 := div.Rem(213, 23)
 	fmt.Println("rem using div r5:", r5)
+
+	map1 := make(map[string]any)
+
+	map1["add"] = func(i1, i2 int) int {
+		return i1 + i2
+	}
+	map1["sub"] = sub
+	map1["mul"] = mul
+	map1["div"] = div
+	println("\n execute map")
+	a, b := 40, 30
+	for k, v := range map1 {
+		switch v.(type) {
+		case (func(int, int) int):
+			r := v.(func(int, int) int)(a, b)
+			println(k, "-->", r)
+		case Func:
+			r1 := v.(Func)(a, b)
+			println(k, "-->", r1)
+			r2 := v.(Func).Rem(a, b)
+			println("rem", "-->", r2)
+		}
+	}
 }
 
 type Func func(int, int) int
