@@ -51,7 +51,7 @@ go run -gcflags="-m" main.go
 
 ## builtin
 
-- append,cap,clear,complex,copy,delete,len,imag,make,max,min,new,panic,print,println,real (16  out of 18)
+- append,cap,clear,complex,copy,delete,len,imag,make,max,min,new,panic,print,println,real,recover (17  out of 18)
 
 ## Why Golang?
 
