@@ -61,3 +61,7 @@ func (f Func1) Hey() {
 // 3. closures can be created using anonymous functions
 // 4. expressions can evaluated from scopes using anonymous funcs.
 //		Since scopes cannot evaluate expressiomns in go unlike in rust
+
+// 1- take two global variables
+// 2- create two anonymous functions for area and perimeter
+// 3- caluclate it..
