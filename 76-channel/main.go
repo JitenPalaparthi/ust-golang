@@ -64,4 +64,4 @@ func Receiver2(ch <-chan int) {
 // pong
 
 // ping function has to send a message to pong ("ping")
-// upon receiving a message from ping, pong has to reply as ping
+// upon receiving a message from ping, pong has to reply as pong
