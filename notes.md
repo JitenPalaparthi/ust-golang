@@ -22,3 +22,9 @@ CSP - go routines
 Global Queue
 Local Queue
 Work Stealing
+
+
+Channel:
+do not communicate by sharing memory, rather share memory by communicating.
+
+Dont use global variables and share memory among goroutines
