@@ -11,6 +11,7 @@ func main() {
 	//<-Receiver(ch1) // future pattern
 	//fmt.Println("Received a signal, so exiting from main", signal)
 	<-Receiver(ch1)
+
 	ch2 := Generate(time.Second*1, time.Millisecond*200)
 	<-Receiver(ch2)
 	fmt.Println("Received a signal, so exiting from main")

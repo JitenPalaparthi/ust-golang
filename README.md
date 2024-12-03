@@ -47,11 +47,11 @@ go run -gcflags="-m" main.go
 
 ## keywords 
 
-- break,case,const,continue,default,defer,else,fallthrough,for,func,goto, if, import,interface,map, package,range,return,switch,struct,type,var (22 out of 25)
+- break,case,chan,const,continue,default,defer,else,fallthrough,for,func,go,goto, if, import,interface,map, package,range,return,select,switch,struct,type,var (25 out of 25)
 
 ## builtin
 
-- append,cap,clear,complex,copy,delete,len,imag,make,max,min,new,panic,print,println,real,recover (17  out of 18)
+- append,cap,clear,close,complex,copy,delete,len,imag,make,max,min,new,panic,print,println,real,recover (18  out of 18)
 
 ## Why Golang?
 
