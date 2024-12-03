@@ -10,6 +10,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 )
 
 func main() {
@@ -34,6 +35,15 @@ func main() {
 	utils.FileName = "data/users.db"
 	go utils.Write(ctx)
 
+	go func() {
+		for {
+			select {
+			case <-ctx.Done():
+				time.Sleep(time.Second * 5)
+				log.Fatalln("closing application")
+			}
+		}
+	}()
 	http.HandleFunc("/ping", handlers.Ping)
 	http.HandleFunc("/health", handlers.Health)
 	http.HandleFunc("/user", handlers.CreateUser)

@@ -79,3 +79,6 @@ go run -gcflags="-m" main.go
 
 Compilation ->
 
+## golang cotext implementation
+
+https://www.youtube.com/playlist?list=PLJE7PIP1qj_Rn9vq4V4jGJbj5KqEIWSUc
