@@ -1,21 +1,23 @@
 package handlers
 
 import (
+	"demo/database"
 	"demo/models"
-	"math/rand/v2"
 	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
-type User struct{}
-
-func NewUser() *User {
-	return new(User)
+type User struct {
+	DB *database.UserDB // promoted field
 }
 
-func (u *User) Create(ctx *gin.Context) {
+func NewUser(userDB *database.UserDB) *User {
+	return &User{DB: userDB}
+}
+
+func (u *User) CreateUser(ctx *gin.Context) {
 
 	user := new(models.User)
 
@@ -29,11 +31,18 @@ func (u *User) Create(ctx *gin.Context) {
 		ctx.Abort()
 		return
 	}
-	user.Id = uint(rand.IntN(1000))
+	//user.Id = uint(rand.IntN(1000))
 	user.Status = "active"
 	user.LastModified = time.Now().Unix()
 
 	err = user.Validate()
+	if err != nil {
+		ctx.String(http.StatusBadRequest, err.Error())
+		ctx.Abort()
+		return
+	}
+
+	user, err = u.DB.Create(user)
 	if err != nil {
 		ctx.String(http.StatusBadRequest, err.Error())
 		ctx.Abort()
