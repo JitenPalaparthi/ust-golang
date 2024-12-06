@@ -4,6 +4,7 @@ import (
 	"demo/database"
 	"demo/models"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -49,4 +50,53 @@ func (u *User) CreateUser(ctx *gin.Context) {
 		return
 	}
 	ctx.JSON(http.StatusCreated, user)
+}
+
+func (u *User) GetUserByID(ctx *gin.Context) {
+	id := ctx.Param("id")
+	if id == "" {
+		ctx.String(http.StatusBadRequest, "invalid id")
+		ctx.Abort()
+		return
+	}
+
+	_id, err := strconv.Atoi(id)
+	if err != nil {
+		ctx.String(http.StatusBadRequest, "invalid id")
+		ctx.Abort()
+		return
+	}
+
+	user, err := u.DB.GetByID(uint(_id))
+
+	if err != nil {
+		ctx.String(http.StatusBadRequest, err.Error())
+	}
+
+	ctx.JSON(http.StatusOK, user)
+}
+
+func (u *User) DeleteUserByID(ctx *gin.Context) {
+	id := ctx.Param("id")
+	if id == "" {
+		ctx.String(http.StatusBadRequest, "invalid id")
+		ctx.Abort()
+		return
+	}
+
+	_id, err := strconv.Atoi(id)
+	if err != nil {
+		ctx.String(http.StatusBadRequest, "invalid id")
+		ctx.Abort()
+		return
+	}
+
+	n, err := u.DB.DeleteByID(uint(_id))
+
+	if err != nil {
+		ctx.String(http.StatusBadRequest, err.Error())
+	}
+
+	ctx.JSON(http.StatusOK, n)
+
 }

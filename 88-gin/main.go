@@ -29,6 +29,8 @@ func main() {
 	r.GET("/health", handlers.Health)
 
 	r.POST("/user", uhandler.CreateUser)
+	r.GET("/user/:id", uhandler.GetUserByID)
+	r.DELETE("/user/:id", uhandler.DeleteUserByID)
 	if err := r.Run(); err != nil {
 		log.Fatal(err.Error())
 	} // default 8080
