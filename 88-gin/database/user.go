@@ -20,7 +20,7 @@ func (u *UserDB) Create(user *models.User) (*models.User, error) {
 	if u.DB == nil {
 		return nil, errors.New("invalid database connection")
 	}
-	u.DB.AutoMigrate(models.User{}) // this creates the table at first. Any updates are there in the model , they are taken care
+	u.DB.AutoMigrate(models.User{}) // this creates the table at first. Any updates are there in the model , they are updated in the table
 
 	tr := u.DB.Create(user)
 	if tr.Error != nil {
