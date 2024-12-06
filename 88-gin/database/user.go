@@ -2,8 +2,10 @@ package database
 
 import (
 	"demo/models"
+	"demo/utils"
 	"errors"
 	"fmt"
+	"log"
 
 	"gorm.io/gorm"
 )
@@ -17,15 +19,17 @@ func NewUserDB(db *gorm.DB) *UserDB {
 }
 
 func (u *UserDB) Create(user *models.User) (*models.User, error) {
-
 	if u.DB == nil {
+		utils.LogChan <- fmt.Sprintln(log.Ldate, log.Ltime, log.Lshortfile, "invalid database connection")
 		return nil, errors.New("invalid database connection")
 	}
 	u.DB.AutoMigrate(models.User{}) // this creates the table at first. Any updates are there in the model , they are updated in the table
 
-	tr := u.DB.Create(user)
-	if tr.Error != nil {
-		return nil, tr.Error
+	tx := u.DB.Create(user)
+	if tx.Error != nil {
+		utils.LogChan <- utils.GetLogHeader(tx.Error.Error())
+
+		return nil, tx.Error
 	}
 	return user, nil
 }
@@ -52,6 +56,8 @@ func (u *UserDB) DeleteByID(id uint) (uint, error) {
 		return 0, tx.Error
 	}
 	if tx.RowsAffected == 0 {
+		utils.LogChan <- utils.GetLogHeader("no record to delete based on id " + fmt.Sprint(id))
+
 		return 0, errors.New("no record to delete based on id " + fmt.Sprint(id))
 	}
 	return uint(tx.RowsAffected), nil
@@ -61,8 +67,6 @@ func (u *UserDB) UpdateByID(user *models.User) (*models.User, error) {
 	if u.DB == nil {
 		return nil, errors.New("invalid database connection")
 	}
-
-	fmt.Println("---->", user)
 	tx := u.DB.Updates(user)
 	if tx.Error != nil {
 		return nil, tx.Error

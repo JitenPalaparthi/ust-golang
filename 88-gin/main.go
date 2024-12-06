@@ -9,8 +9,11 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func main() {
+func init() {
+	log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
+}
 
+func main() {
 	var dsn string
 
 	if dsn = os.Getenv("DBCONN"); dsn == "" {

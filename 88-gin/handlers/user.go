@@ -3,6 +3,7 @@ package handlers
 import (
 	"demo/database"
 	"demo/models"
+	"log"
 	"net/http"
 	"strconv"
 	"time"
@@ -133,5 +134,6 @@ func (u *User) UpdateUserByID(ctx *gin.Context) {
 		ctx.Abort()
 		return
 	}
+	log.Println("user has been updated successfully")
 	ctx.JSON(http.StatusOK, user)
 }
