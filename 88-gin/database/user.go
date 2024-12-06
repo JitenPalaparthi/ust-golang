@@ -46,15 +46,29 @@ func (u *UserDB) DeleteByID(id uint) (uint, error) {
 	if u.DB == nil {
 		return 0, errors.New("invalid database connection")
 	}
-	fmt.Println("id------>>>", id)
 
 	tx := u.DB.Delete(models.User{}, id)
 	if tx.Error != nil {
 		return 0, tx.Error
 	}
-	fmt.Println("id------>>>", id)
 	if tx.RowsAffected == 0 {
-		return 0, fmt.Errorf("no record to delete based on id:%d", int(id))
+		return 0, errors.New("no record to delete based on id " + fmt.Sprint(id))
 	}
 	return uint(tx.RowsAffected), nil
+}
+
+func (u *UserDB) UpdateByID(user *models.User) (*models.User, error) {
+	if u.DB == nil {
+		return nil, errors.New("invalid database connection")
+	}
+
+	fmt.Println("---->", user)
+	tx := u.DB.Updates(user)
+	if tx.Error != nil {
+		return nil, tx.Error
+	}
+	if tx.RowsAffected == 0 {
+		return nil, errors.New("no record to udpate based on id " + fmt.Sprint(user.Id))
+	}
+	return user, nil
 }

@@ -92,11 +92,46 @@ func (u *User) DeleteUserByID(ctx *gin.Context) {
 	}
 
 	n, err := u.DB.DeleteByID(uint(_id))
-
 	if err != nil {
 		ctx.String(http.StatusBadRequest, err.Error())
+		ctx.Abort()
+		return
+	}
+	ctx.JSON(http.StatusOK, n)
+}
+
+func (u *User) UpdateUserByID(ctx *gin.Context) {
+	id := ctx.Param("id")
+	if id == "" {
+		ctx.String(http.StatusBadRequest, "invalid id")
+		ctx.Abort()
+		return
 	}
 
-	ctx.JSON(http.StatusOK, n)
+	_id, err := strconv.Atoi(id)
+	if err != nil {
+		ctx.String(http.StatusBadRequest, "invalid id")
+		ctx.Abort()
+		return
+	}
+	user := new(models.User)
 
+	err = ctx.Bind(user)
+	if err != nil {
+		ctx.String(http.StatusBadRequest, err.Error())
+		ctx.Abort()
+		return
+	}
+	user.Id = uint(_id)
+	user.Status = "active"
+	user.LastModified = time.Now().Unix()
+
+	user, err = u.DB.UpdateByID(user)
+	//fmt.Println(err.Error())
+	if err != nil {
+		ctx.String(http.StatusBadRequest, err.Error())
+		ctx.Abort()
+		return
+	}
+	ctx.JSON(http.StatusOK, user)
 }
