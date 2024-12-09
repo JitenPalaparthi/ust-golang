@@ -1,0 +1,20 @@
+mode: set
+test-demo/main.go:3.14,5.2 0 0
+test-demo/shape/cuboid/area.go:3.33,5.2 1 0
+test-demo/shape/cuboid/perimeter.go:3.38,5.2 1 0
+test-demo/shape/shape.go:5.13,7.2 1 0
+test-demo/shape/shape.go:9.12,11.2 1 0
+test-demo/shape/circle/circle.go:10.26,12.2 1 0
+test-demo/shape/circle/circle.go:14.21,16.2 1 0
+test-demo/shape/circle/circle.go:18.13,20.2 1 0
+test-demo/shape/circle/circle.go:22.13,24.2 1 0
+test-demo/shape/circle/circle.go:26.13,28.2 1 0
+test-demo/shape/circle/circle.go:30.13,32.2 1 0
+test-demo/shape/square/square.go:5.13,7.2 1 0
+test-demo/shape/square/square.go:11.32,13.2 1 0
+test-demo/shape/square/square.go:15.37,17.2 1 0
+test-demo/shape/rect/rect.go:5.13,7.2 1 1
+test-demo/shape/rect/rect.go:9.30,11.2 1 1
+test-demo/shape/rect/rect.go:12.25,14.2 1 0
+test-demo/shape/rect/rect.go:20.31,22.2 1 0
+test-demo/shape/rect/rect.go:23.36,25.2 1 0
