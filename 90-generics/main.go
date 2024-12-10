@@ -173,7 +173,7 @@ func addGenerics[T int | uint | uint8 | uint16 | uint32 | uint64 | int8 | int32 
 // R->4
 // 0644 (File or Directory CurrentUser Group Others)
 
-
+const(
 O_RDONLY int = syscall.O_RDONLY // open the file read-only.
 O_WRONLY int = syscall.O_WRONLY // open the file write-only.
 O_RDWR   int = syscall.O_RDWR   // open the file read-write.
@@ -183,6 +183,7 @@ O_CREATE int = syscall.O_CREAT  // create a new file if none exists.
 O_EXCL   int = syscall.O_EXCL   // used with O_CREATE, file must not exist.
 O_SYNC   int = syscall.O_SYNC   // open for synchronous I/O.
 O_TRUNC  int = syscall.O_TRUNC  // truncate regular writable file when opened.
+)
 */
 
 func addGenericsI[T Generic](a, b T) T {
@@ -195,3 +196,24 @@ type Generic interface {
 
 type Empty interface {
 }
+
+const (
+	Active = iota
+	_
+	Pending
+	Inactive
+	_
+	Created
+)
+
+const (
+	READ = 1 << (iota * 2)
+	WRITE
+	EXECUTE
+)
+
+// calc function with generics
+// add
+// sub
+// mul
+// div
